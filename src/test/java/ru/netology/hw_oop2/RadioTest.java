@@ -6,6 +6,24 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void mytValueSize() {
+        Radio radio = new Radio(15);
+
+        Assertions.assertEquals(0, radio.getMinStation());
+        Assertions.assertEquals(14, radio.getMaxStation());
+        Assertions.assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void defaultValueSize() {
+        Radio radio = new Radio();
+
+        Assertions.assertEquals(0, radio.getMinStation());
+        Assertions.assertEquals(9, radio.getMaxStation());
+        Assertions.assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
     public void shouldSetStation() {   //задаем значение станции
         Radio radio = new Radio();
 
@@ -17,17 +35,6 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void shouldSetMaxStation() {
-        Radio radio = new Radio();
-
-        radio.setMaxStation();
-
-        int expected = 9;
-        int actual = radio.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void shouldNotSetStationAboveMax() {
